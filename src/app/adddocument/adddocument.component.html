@@ -39,13 +39,24 @@
     <div class="container mt-4">
         <h4>Add Documents to the Envelop</h4>
         <div class="row">
-            <div  class="col-md-3" id="border">
-                <img [src]="url" alt="">
+            <div class="col-md-3" id="border">
+                <!-- <img [src]="url" alt=""> -->
+                <pdf-viewer [src]="pdfSrc" [render-text]="true" style="display: block;"
+                
+                [show-all]="false"
+               
+                ></pdf-viewer>
+                <!-- [zoom]="0.5" -->
+                <!-- [show-borders]="true"
+                [autoresize]="true"
+                [original-size]="true" -->
             </div>
             <div class="col-md-3" id="border">
                 <div class="text-center">
                     <p><i class="fa fa-file"></i></p>
-                    <button class="btn btn-primary btn-block" type="button" (click)="fileInput.click()">
+                    <input (change)="onFileSelected()" type="file" id="file" />
+
+                    <button class="btn btn-primary btn-block" type="button">
                         <span>UPLOAD</span>
                         <input #fileInput type="file" (change)="onFileInput($event)" style="display:none;" />
                     </button>

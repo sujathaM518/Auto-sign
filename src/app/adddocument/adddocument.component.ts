@@ -1,5 +1,4 @@
 import { Component, OnInit } from '@angular/core';
-
 @Component({
   selector: 'app-adddocument',
   templateUrl: './adddocument.component.html',
@@ -10,7 +9,7 @@ export class AdddocumentComponent implements OnInit {
   showAllRecept: boolean;
   url: string | ArrayBuffer;
   
-
+  pdfSrc : any
   constructor() { }
 
   ngOnInit(): void {
@@ -28,8 +27,23 @@ export class AdddocumentComponent implements OnInit {
       reader.readAsDataURL(event.target.files[0]);
       reader.onload = (event) => {
         this.url = event.target.result;
+      console.log("URL",this.url);
+
       }
-      console.log("urlllllllll",this.url);
+    }
+  }
+
+  onFileSelected() {
+    let $img: any = document.querySelector('#file');
+   
+    if (typeof (FileReader) !== 'undefined') {
+      let reader = new FileReader();
+   
+      reader.onload = (e: any) => {
+        this.pdfSrc = e.target.result;
+      };
+   
+      reader.readAsArrayBuffer($img.files[0]);
     }
   }
 

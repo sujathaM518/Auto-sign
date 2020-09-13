@@ -14,11 +14,12 @@ import { AdddocumentComponent } from './adddocument/adddocument.component';
 import { InboxComponent } from './inbox/inbox.component';
 import { SentComponent } from './sent/sent.component';
 import { DocumentDetailsComponent } from './document-details/document-details.component';
+import { PdfViewerModule } from 'ng2-pdf-viewer';
 
 
 const ROUTES: Routes = [
 
-  { path: ' ', component: HomeComponent },
+  { path: '', redirectTo : 'home'  , pathMatch : "full"},
   { path: 'home', component: HomeComponent },
   {
     path: 'document', 
@@ -58,6 +59,7 @@ const ROUTES: Routes = [
   ],
   imports: [
     BrowserModule,
+    PdfViewerModule,
     RouterModule.forRoot(ROUTES)
   ],
   providers: [],

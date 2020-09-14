@@ -58,3 +58,8 @@
     border: 1px solid rgb(216, 216, 216);
     border-radius: 50%;
 }
+
+pdf-viewer {
+    display: block;
+    height: 200px;
+}

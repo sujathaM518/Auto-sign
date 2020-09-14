@@ -54,11 +54,11 @@
             <div class="col-md-3" id="border">
                 <div class="text-center">
                     <p><i class="fa fa-file"></i></p>
-                    <input (change)="onFileSelected()" type="file" id="file" />
+                    <!-- <input (change)="onFileSelected()" type="file" id="file" /> -->
 
-                    <button class="btn btn-primary btn-block" type="button">
+                    <button class="btn btn-primary btn-block" type="button" (click)="fileInput.click()">
                         <span>UPLOAD</span>
-                        <input #fileInput type="file" (change)="onFileInput($event)" style="display:none;" />
+                        <input #fileInput type="file" (change)="onFileSelected()" id="file" style="display:none;" />
                     </button>
                     <!-- <a class="btn btn-block btn-primary text-light">UPLOAD</a> -->
                     <a class="btn btn-block btn-info text-light">USE A TEMPLATE</a>

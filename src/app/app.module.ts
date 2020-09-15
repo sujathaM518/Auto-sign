@@ -15,6 +15,12 @@ import { InboxComponent } from './inbox/inbox.component';
 import { SentComponent } from './sent/sent.component';
 import { DocumentDetailsComponent } from './document-details/document-details.component';
 import { PdfViewerModule } from 'ng2-pdf-viewer';
+import { LoginComponent } from './shared/login/login.component';
+import { RegisterComponent } from './shared/register/register.component';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { DraftsComponent } from './drafts/drafts.component';
+import { AddFieldsComponent } from './add-fields/add-fields.component';
+import { DragDropModule } from '@angular/cdk/drag-drop';
 
 
 const ROUTES: Routes = [
@@ -37,11 +43,17 @@ const ROUTES: Routes = [
       {
         path: 'sent',
         component: SentComponent
+      },
+      {
+        path: 'draft',
+        component: DraftsComponent
       }
     ]
   },
   { path: 'adddocument', component: AdddocumentComponent },
-
+  { path: 'login', component: LoginComponent },
+  { path: 'register', component: RegisterComponent },
+  { path: 'addfields', component: AddFieldsComponent },
 ]
 
 @NgModule({
@@ -56,10 +68,17 @@ const ROUTES: Routes = [
     AdddocumentComponent,
     InboxComponent,
     SentComponent,
+    LoginComponent,
+    RegisterComponent,
+    DraftsComponent,
+    AddFieldsComponent,
   ],
   imports: [
     BrowserModule,
     PdfViewerModule,
+    ReactiveFormsModule,
+    FormsModule,
+    DragDropModule,
     RouterModule.forRoot(ROUTES)
   ],
   providers: [],

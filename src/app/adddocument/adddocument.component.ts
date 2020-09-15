@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
 @Component({
   selector: 'app-adddocument',
   templateUrl: './adddocument.component.html',
@@ -10,7 +11,7 @@ export class AdddocumentComponent implements OnInit {
   url: string | ArrayBuffer;
   
   pdfSrc : any
-  constructor() { }
+  constructor(private router: Router) { }
 
   ngOnInit(): void {
   }
@@ -41,10 +42,16 @@ export class AdddocumentComponent implements OnInit {
    
       reader.onload = (e: any) => {
         this.pdfSrc = e.target.result;
+        console.log("viewwww",this.pdfSrc)
+        localStorage.setItem("PdfViewerSrc",JSON.stringify(this.pdfSrc));
       };
    
       reader.readAsArrayBuffer($img.files[0]);
     }
+  }
+
+  gotoAddField() {
+    this.router.navigateByUrl("/addfields");
   }
 
 }
